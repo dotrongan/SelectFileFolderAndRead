@@ -1,4 +1,14 @@
-package processing.files;
+package com.andt.selectfile.selectfile;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import com.andt.selectfile.R;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,38 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.app.ListActivity;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-
-/**
- * Activity, which provides
- * <ul>
- * <li>select file,</li>
- * <li>select folder,</li>
- * <li>save file</li>
- * functionality.
- * <br>
- * <br>
- * Usage:
- * <pre>
- *   // define somewhere
- *   protected static final int PATH_RESULT = 123;
- *
- *   // ...
- *   // call this:
- *   Intent i = new Intent(TestActivity.this, SelectActivity.class);
- *   i.putExtra(SelectActivity.EX_PATH, Environment.getExternalStorageDirectory().getAbsolutePath());
- *   i.putExtra(SelectActivity.EX_STYLE, SelectMode.OPEN_FILE);
- *   startActivityForResult(i, PATH_RESULT);
- * </pre>
- *
- * @author ostap.andrusiv
- */
 public class SelectActivity extends ListActivity {
 
     private static final String I_FULL_PATH = "fullPath";

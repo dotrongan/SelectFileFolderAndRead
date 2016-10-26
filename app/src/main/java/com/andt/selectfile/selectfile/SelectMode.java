@@ -1,7 +1,4 @@
-package processing.files;
-
-import java.io.File;
-import java.io.FileFilter;
+package com.andt.selectfile.selectfile;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,7 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import com.andt.selectfile.R;
+
+import java.io.File;
+import java.io.FileFilter;
 
 public abstract class SelectMode implements FileFilter {
 
@@ -163,7 +164,7 @@ public abstract class SelectMode implements FileFilter {
       Button selectFolder = (Button) activity.findViewById(R.id.select_folder);
       selectFolder.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
-          OPEN_FOLDER.this.selectResult(new File(activity.getCurrentPath()));
+          SelectMode.OPEN_FOLDER.this.selectResult(new File(activity.getCurrentPath()));
         }
       });
 
@@ -233,7 +234,7 @@ public abstract class SelectMode implements FileFilter {
         public void onClick(View v) {
           File path = new File(activity.getCurrentPath());
           File newFile = new File(path, fileName.getText().toString());
-          SAVE_FILE.this.selectResult(newFile);
+          SelectMode.SAVE_FILE.this.selectResult(newFile);
         }
       });
 
